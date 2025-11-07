@@ -14,3 +14,19 @@ export interface OpenSkyResponse {
   time: number;
   states: any[][] | null;
 }
+
+export interface AirportInfo {
+  code: string;
+  name: string;
+  city: string;
+  country: string;
+}
+
+export interface FlightRoute {
+  origin: AirportInfo | null;
+  destination: AirportInfo | null;
+  callsign: string;
+  icao24: string;
+  source?: string;
+  error?: string;
+}
