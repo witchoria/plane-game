@@ -27,9 +27,34 @@ body {
 .plane-marker {
   background: transparent !important;
   border: none !important;
-  cursor: pointer;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  z-index: 1000 !important;
+}
+
+.plane-marker > * {
+  pointer-events: auto !important;
+  cursor: pointer !important;
 }
 
 .plane-marker:hover {
   filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+  transform: scale(1.1);
+}
+
+.leaflet-tooltip {
+  pointer-events: none !important;
+}
+
+.leaflet-marker-pane {
+  z-index: 600 !important;
+}
+
+.leaflet-tooltip-pane {
+  z-index: 650 !important;
+  pointer-events: none !important;
+}
+
+.leaflet-overlay-pane {
+  z-index: 400 !important;
 }

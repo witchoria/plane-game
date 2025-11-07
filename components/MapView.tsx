@@ -53,6 +53,8 @@ export default function MapView({
         zoom={12}
         className="h-full w-full"
         zoomControl={true}
+        doubleClickZoom={false}
+        preferCanvas={false}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -64,7 +66,10 @@ export default function MapView({
           <PlaneMarker
             key={plane.icao24}
             aircraft={plane}
-            onClick={() => onPlaneSelect?.(plane)}
+            onClick={() => {
+              console.log('MapView: onClick called for', plane.callsign);
+              onPlaneSelect?.(plane);
+            }}
           />
         ))}
       </MapContainer>
